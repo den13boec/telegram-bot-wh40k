@@ -1,6 +1,6 @@
 # Тираниды
 
-![tyranids](/data/factions/tyranids/tyranids_pic.jpg)
+![tyranids](tyranids_pic.jpg)
 
 Тираниды — внегалактическая смешанная раса отвратительных насекомоподобных ксеносов. На самом деле они представляют собой целую космическую экосистему, состоящую из бесчисленного множества различных биоформ, являющихся вариациями одной и той же генетической темы.
 
@@ -24,8 +24,8 @@
 
 ## Активность тиранидов в галактике
 
-![tyranids1](/data/factions/tyranids/tyranids_map1.jpg)
+![tyranids1](tyranids_map1.jpg)
 
-![tyranids2](/data/factions/tyranids/tyranids_map2.jpg)
+![tyranids2](tyranids_map2.jpg)
 
-![tyranids3](/data/factions/tyranids/tyranids_map3.jpg)
+![tyranids3](tyranids_map3.jpg)

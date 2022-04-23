@@ -9,6 +9,8 @@ license = "MIT"
 python = "^3.10"
 pyTelegramBotAPI = "^4.4.1"
 toml = "^0.10.2"
+Markdown = "^3.3.6"
+jsonschema = "^4.4.0"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^1.6.0"

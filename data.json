@@ -1,0 +1,77 @@
+{
+    "things": [
+        {
+            "category": "factions",
+            "parents": [],
+            "content": {
+                "name": "Орки",
+                "md_doc_path": "data/factions/orks"
+            }
+        },        
+        {
+            "category": "factions",
+            "parents": [],
+            "content": {
+                "name": "Хаос",
+                "md_doc_path": "data/factions/chaos"
+            }
+        },
+        {
+            "category": "factions",
+            "parents": [],
+            "content": {
+                "name": "Эльдар",
+                "md_doc_path": "data/factions/eldar"
+            }
+        },
+        {
+            "category": "factions",
+            "parents": [],
+            "content": {
+                "name": "Тёмные эльдар",
+                "md_doc_path": "data/factions/dark_eldar"
+            }
+        },
+        {
+            "category": "factions",
+            "parents": [],
+            "content": {
+                "name": "Люди",
+                "md_doc_path": "data/factions/human"
+            }
+        },
+        {
+            "category": "factions",
+            "parents": [],
+            "content": {
+                "name": "Некроны",
+                "md_doc_path": "data/factions/necrons"
+            }
+        },
+        {
+            "category": "factions",
+            "parents": [],
+            "content": {
+                "name": "Тау",
+                "md_doc_path": "data/factions/tau"
+            }
+        },
+        {
+            "category": "factions",
+            "parents": [],
+            "content": {
+                "name": "Тираниды",
+                "md_doc_path": "data/factions/tyranids"
+            }
+        },
+        {
+            "category": "books",
+            "parents": [],
+            "content": {
+                "title": "Под знаком Сатурна",
+                "author": "Дэн Абнетт",
+                "description": "Воинство Предателей во главе с Хорусом Луперкалем все крепче сжимает Императорский дворец в тисках. Стены и башни одна за другой начинают сминаться и рушиться. Рогал Дорн, Преторианец Терры, удваивает усилия, чтобы сдержать неумолимого врага, но у обороняющихся гораздо меньше людей и катастрофически не хватает огневой мощи. Дорн просто не способен защищать все и сразу. Теперь любая попытка выжить требует жертв, но какие битвы Рогал осмелит сяпроиграть, чтобы добиться успеха в других? Возможен ли один тактический ход, один решающий бой, который навсегда переломит ход войны и принесет защитникам победу?"
+            }
+        }           
+    ]
+}

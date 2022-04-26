@@ -36,9 +36,8 @@ def validate_data(parsed_json: str) -> None:
 
 
 def read_json_data(path: str) -> dict:
-    '''Загружаем json схему и валидируем её'''
+    """Загружаем json схему и валидируем её"""
     with open(path, "r", encoding='utf-8') as read_file:
         json_data = json.load(read_file)
-        print(type(json_data))
         validate_data(json_data)
         return json_data

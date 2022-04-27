@@ -28,13 +28,32 @@ def send_welcome(message):
         reply_markup=markup)
 
 
-@bot.callback_query_handler(lambda query: query.data in ["lore"])
-def process_callback_2(query):
+@bot.callback_query_handler(lambda query: query.data == "lore")
+def answer_query_lore(query):
     markup = markup_format_level_2()
     bot.send_message(
         query.message.chat.id, "Выберите фракцию", reply_markup=markup)
     bot.answer_callback_query(query.id)
     pass
+
+
+def script_location():
+    return (os.path.dirname(os.path.realpath(__file__)))
+
+
+@bot.callback_query_handler(lambda query: query.data == "books")
+def answer_query_books(query):
+    scp_loc=script_location()
+    books_path=os.path.join(scp_loc, "data/books.md")
+    doc = read_md(books_path)
+    messages = smart_split(text=doc[0])
+    for msg in messages:
+        bot.send_message(query.message.chat.id, msg, parse_mode="markdown") 
+    for x in doc[1]:
+        img_path=os.path.join(scp_loc, "data/"+ x)
+        f=open(img_path, 'rb')
+        bot.send_document(query.message.chat.id, f)
+    bot.answer_callback_query(query.id)
 
 
 # TODO:
@@ -99,7 +118,7 @@ def read_md(path: str) -> str:
     """Чтение markdown файла"""
     with open(path, "r", encoding='utf-8') as file:
         text = file.read()
-        return text
+        return text, get_image_from_md(text)
 
 
 @bot.message_handler(commands=["faction"])
@@ -112,7 +131,7 @@ def faction(message):
         bot.reply_to(message, f"Фракция: {faction_name} не найдена")
     else:
         doc = read_md(os.path.join(dir_path, md_path))
-        messages = smart_split(text=doc)
+        messages = smart_split(text=doc[0])
         for msg in messages:
             bot.reply_to(message, msg, parse_mode="markdown")
 
@@ -128,10 +147,12 @@ def any_text_message(message):
         message.chat.id, "О чём вы хотите узнать?", reply_markup=markup)
 
 
-def get_assoc_images(path: str = "data/factions/necrons/necrons_race.md"):
-    with open(path, "r", encoding='utf-8') as file:
-        text = file.read()
-        return get_image_from_md(text)
+# def get_assoc_images(path: str = "data/factions/necrons/necrons_race.md"):
+#     with open(path, "r", encoding='utf-8') as file:
+#         text = file.read()
+#         return get_image_from_md(text)
+
+
 
 
 if __name__ == "__main__":

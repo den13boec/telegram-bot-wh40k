@@ -5,7 +5,7 @@
             "parents": [],
             "content": {
                 "name": "Орки",
-                "md_doc_path": "data/factions/orks"
+                "md_doc_path": "data/factions/orks/orks_race.md"
             }
         },        
         {
@@ -21,7 +21,7 @@
             "parents": [],
             "content": {
                 "name": "Эльдар",
-                "md_doc_path": "data/factions/eldar"
+                "md_doc_path": "data/factions/eldar/eldar_race.md"
             }
         },
         {
@@ -29,7 +29,7 @@
             "parents": [],
             "content": {
                 "name": "Тёмные эльдар",
-                "md_doc_path": "data/factions/dark_eldar"
+                "md_doc_path": "data/factions/dark_eldar/dark_eldar_race.md"
             }
         },
         {
@@ -37,7 +37,7 @@
             "parents": [],
             "content": {
                 "name": "Люди",
-                "md_doc_path": "data/factions/human"
+                "md_doc_path": "data/factions/human/human_race.md"
             }
         },
         {
@@ -45,7 +45,7 @@
             "parents": [],
             "content": {
                 "name": "Некроны",
-                "md_doc_path": "data/factions/necrons"
+                "md_doc_path": "data/factions/necrons/necrons_race.md"
             }
         },
         {
@@ -53,7 +53,7 @@
             "parents": [],
             "content": {
                 "name": "Тау",
-                "md_doc_path": "data/factions/tau"
+                "md_doc_path": "data/factions/tau/tau_race.md"
             }
         },
         {
@@ -61,7 +61,7 @@
             "parents": [],
             "content": {
                 "name": "Тираниды",
-                "md_doc_path": "data/factions/tyranids"
+                "md_doc_path": "data/factions/tyranids/tyranids_race.md"
             }
         },
         {

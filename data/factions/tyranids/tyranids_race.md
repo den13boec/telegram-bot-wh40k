@@ -1,4 +1,4 @@
-# Тираниды
+*Тираниды*
 
 ![tyranids](tyranids_pic.jpg)
 

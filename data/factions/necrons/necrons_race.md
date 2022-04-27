@@ -1,4 +1,4 @@
-# Некроны
+*Некроны*
 
 ![necrons](necron_pic.jpg)
 

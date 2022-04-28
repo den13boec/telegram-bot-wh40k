@@ -1,9 +1,10 @@
 import telebot
 import toml
+from data_provider import DataProvider
 from md_image import get_image_from_md
-from manage_data import read_json_data
 import os
 from telebot.util import smart_split
+from data_helpers import get_directory_realpath
 
 
 def get_telegram_creds(path: str = 'config_secret.toml') -> tuple[int, str]:
@@ -15,17 +16,19 @@ def get_telegram_creds(path: str = 'config_secret.toml') -> tuple[int, str]:
 api_id, api_hash = get_telegram_creds()
 bot = telebot.TeleBot(f'{api_id}:{api_hash}', parse_mode=None)
 
-# TODO: global reduce usage of varibles
-dir_path = os.path.dirname(os.path.realpath(__file__))
-json_full_path = os.path.join(dir_path, "data.json")
+# TODO: global reduce usage of variables
+dir_path = get_directory_realpath(__file__)
+provider = DataProvider('data.json')
 
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     markup = markup_format_level_1()
     bot.send_message(
-        message.chat.id, "Приветствуем в библиариуме, библиотеке о мире Warhammer40k! О чём вы хотите узнать?",
-        reply_markup=markup)
+        message.chat.id,
+        "Приветствуем в библиариуме, библиотеке о мире Warhammer40k! О чём вы хотите узнать?",
+        reply_markup=markup
+    )
 
 
 @bot.callback_query_handler(lambda query: query.data == "lore")
@@ -81,7 +84,7 @@ def markup_format_level_1():
 
 def markup_format_level_2():
     '''Разметка для второго уровня общения с ботом'''
-    data = read_json_data(json_full_path)
+    data = provider.json_data
     factions = []
     for x in data["things"]:
         if x["category"] == "factions":
@@ -94,7 +97,7 @@ def markup_format_level_2():
 
 @bot.message_handler(commands=["factions"])
 def wh40k_factions(message):
-    data = read_json_data(json_full_path)
+    data = provider.json_data
     factions = []
     for x in data["things"]:
         if x["category"] == "factions":
@@ -125,7 +128,7 @@ def read_md(path: str) -> str:
 def faction(message):
     data = message.text
     faction_name: str = data.removeprefix("/faction ")
-    db = read_json_data(json_full_path)
+    db = provider.json_data
     found, md_path = search_faction(db, faction_name)
     if not found:
         bot.reply_to(message, f"Фракция: {faction_name} не найдена")
@@ -145,14 +148,6 @@ def any_text_message(message):
     markup = markup_format_level_1()
     bot.send_message(
         message.chat.id, "О чём вы хотите узнать?", reply_markup=markup)
-
-
-# def get_assoc_images(path: str = "data/factions/necrons/necrons_race.md"):
-#     with open(path, "r", encoding='utf-8') as file:
-#         text = file.read()
-#         return get_image_from_md(text)
-
-
 
 
 if __name__ == "__main__":

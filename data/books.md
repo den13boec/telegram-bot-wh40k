@@ -154,6 +154,6 @@ Blood of the Emperor by Various Authors (2021) [Anthology]
 
 Mortarion: The Pale King by David Annandale (Expected: September 27, 2022)
 
-[](book_order.png)
-<img src=book_order.png alt="image"/>
-[](book_order1.png)
+![Порядок чтения-схема №1](book_order.png)
+
+![Порядок чтения-схема №2](book_order1.png)

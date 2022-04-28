@@ -8,12 +8,9 @@ def get_directory_realpath(file_path: AnyStr) -> AnyStr:
 
 # unix_rel_path = UNIX relative path e.g. : 'data/factions/tyranids'
 def abs_path(unix_rel_path: str) -> str:
-    tmp = unix_rel_path.split("/")
-    return os.path.join(
-        os.path.dirname(
-            os.path.realpath(__file__)
-        ), *tmp
-    )
+    split_rel_path = unix_rel_path.split("/")
+    real_dir_path = os.path.dirname(os.path.realpath(__file__))
+    return os.path.join(real_dir_path, *split_rel_path)
 
 
 def md_doc_path(dir_with_md: str) -> str:

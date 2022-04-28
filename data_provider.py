@@ -51,8 +51,7 @@ class DataProvider:
         paths = list()
         for x in self._json_data['things']:
             if x['category'] == 'factions':
-                cont = x['content']
-                paths.append((cont['name'], cont['md_doc_path']))
+                paths.append((x['content']['name'], x['content']['md_doc_path']))
         return paths
 
     def filter_by_category(self, category_name: str) -> list[dict]:
@@ -62,11 +61,11 @@ class DataProvider:
                 filtered.append(x)
         return filtered
 
-    @property
+    @property  # json getter
     def json_data(self):
         return self._json_data
 
-    @json_data.setter
+    @json_data.setter  # json setter
     def json_data(self, value):
         try:
             validate(value, SCHEMA)
@@ -75,25 +74,26 @@ class DataProvider:
             raise ValueError(f"Error while reassigning json data:"
                              f" invalid data\n{err.message}")
 
+    def prepare_md_docs(self):
+        md_paths = self.collect_path_of_factions()
+        res = dict()
 
-def prepare_md_docs():
-    provider = DataProvider('data.json')
-    md_paths = provider.collect_path_of_factions()
-    res = dict()
+        for (name, path) in md_paths:
+            dir_path = abs_path(path)
+            # we have a md_doc path -> we can use it! (but we don't want.. for now..)
+            md_path = md_doc_path(dir_path)
+            text = read_markdown_text(md_path)
 
-    for (name, path) in md_paths:
-        dir_path = abs_path(path)
-        md_path = md_doc_path(dir_path)
-        text = read_markdown_text(md_path)
+            abs_images = [
+                os.path.join(dir_path, pic) for pic in get_image_from_md(text)  # TODO: strip_image_from_text
+            ]
 
-        abs_images = [
-            os.path.join(dir_path, pic) for pic in get_image_from_md(text)  # TODO: strip_image_from_text
-        ]
+            res[name] = abs_images
 
-        res[name] = abs_images
-
-    print("\n\n", res)
+        for key, val in res.items():
+            print(f"{key}: {val}")
 
 
 if __name__ == "__main__":
-    prepare_md_docs()
+    prov = DataProvider('data.json')
+    prov.prepare_md_docs()

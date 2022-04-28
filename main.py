@@ -41,7 +41,7 @@ def answer_query_lore(query):
 
 
 def script_location():
-    return (os.path.dirname(os.path.realpath(__file__)))
+    return os.path.dirname(os.path.realpath(__file__))
 
 
 @bot.callback_query_handler(lambda query: query.data == "books")
@@ -83,8 +83,9 @@ def markup_format_level_1():
 
 
 def markup_format_level_2():
-    '''Разметка для второго уровня общения с ботом'''
+    """Разметка для второго уровня общения с ботом"""
     data = provider.json_data
+    provider.json_data = {}
     factions = []
     for x in data["things"]:
         if x["category"] == "factions":

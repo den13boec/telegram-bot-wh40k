@@ -6,6 +6,7 @@ def get_directory_realpath(file_path: AnyStr) -> AnyStr:
     return os.path.dirname(os.path.realpath(file_path))
 
 
+# unix_rel_path = UNIX relative path e.g. : 'data/factions/tyranids'
 def abs_path(unix_rel_path: str) -> str:
     tmp = unix_rel_path.split("/")
     return os.path.join(

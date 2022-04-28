@@ -5,7 +5,7 @@
             "parents": [],
             "content": {
                 "name": "Орки",
-                "md_doc_path": "data/factions/orks/orks_race.md"
+                "md_doc_path": "data/factions/orks"
             }
         },        
         {
@@ -13,7 +13,7 @@
             "parents": [],
             "content": {
                 "name": "Хаос",
-                "md_doc_path": "data/factions/chaos/chaos_faction.md"
+                "md_doc_path": "data/factions/chaos"
             }
         },
         {
@@ -21,7 +21,7 @@
             "parents": [],
             "content": {
                 "name": "Эльдар",
-                "md_doc_path": "data/factions/eldar/eldar_race.md"
+                "md_doc_path": "data/factions/eldar"
             }
         },
         {
@@ -29,7 +29,7 @@
             "parents": [],
             "content": {
                 "name": "Тёмные эльдар",
-                "md_doc_path": "data/factions/dark_eldar/dark_eldar_race.md"
+                "md_doc_path": "data/factions/dark_eldar"
             }
         },
         {
@@ -37,7 +37,7 @@
             "parents": [],
             "content": {
                 "name": "Люди",
-                "md_doc_path": "data/factions/human/human_race.md"
+                "md_doc_path": "data/factions/human"
             }
         },
         {
@@ -45,7 +45,7 @@
             "parents": [],
             "content": {
                 "name": "Некроны",
-                "md_doc_path": "data/factions/necrons/necrons_race.md"
+                "md_doc_path": "data/factions/necrons"
             }
         },
         {
@@ -53,7 +53,7 @@
             "parents": [],
             "content": {
                 "name": "Тау",
-                "md_doc_path": "data/factions/tau/tau_race.md"
+                "md_doc_path": "data/factions/tau"
             }
         },
         {
@@ -61,7 +61,7 @@
             "parents": [],
             "content": {
                 "name": "Тираниды",
-                "md_doc_path": "data/factions/tyranids/tyranids_race.md"
+                "md_doc_path": "data/factions/tyranids"
             }
         },
         {

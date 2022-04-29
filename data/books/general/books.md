@@ -1,31 +1,51 @@
 *Книги по Warhammer40k*
 
-Порядок чтения книг по вселенной разнится. Некоторые фанаты составляют схемы порядке их прочтения, но в целом можно следовать по дате их публикации. Схема порядка прочтения от фанатов прикреплена к сообщению.
+Порядок чтения книг по вселенной разнится. Некоторые фанаты составляют схемы порядке их прочтения, но в целом можно следовать по дате их публикации.
 
 *Цикл книг "Ересь Хоруса"*
 
 Ересь Хоруса — цикл произведений разных авторов по вселенной «Warhammer 40000». Серия включает как отдельные романы, так и сборники повестей и рассказов.
 
 Horus Rising by Dan Abnett (2006)
+
 False Gods by Graham McNeill (2006)
+
 Galaxy in Flames by Ben Counter (2006)
+
 The Flight of the Eisenstein by James Swallow (2007)
+
 Fulgrim by Graham McNeill (2007)
+
 Descent of Angels by Mitchel Scanlon (2007)
+
 Legion by Dan Abnett (2008)
+
 Battle for the Abyss by Ben Counter (2008)
+
 Mechanicum by Graham McNeill (2008)
+
 Tales of Heresy by Various Authors (2009)
+
 Fallen Angels by Mike Lee (2009)
+
 A Thousand Sons by Graham McNeill (2010)
+
 Nemesis by James Swallow (2010)
+
 The First Heretic by aaron Dembski-Bowden (2010)
+
 Prospero Burns by Dan Abnett (2010)
+
 Age of Darkness by Various Authors (2011) [Anthology]
+
 The Outcast Dead by Graham McNeill (2011)
+
 Deliverance Lost by Gav Thorpe (2011)
+
 Know No Fear by Dan Abnett (2012)
+
 The Primarchs by Various Authors (2012) [Anthology]
+
 Fear to Tread by James Swallow (2012)
 
 Shadows of Treachery by Various Authors (2012) [Anthology]
@@ -116,7 +136,7 @@ Warhawk by Chris Wraight (2021)
 
 *Цикл примархов*
 
-Помимо цикла про Ересь Хоруса есть новеллы про примархов, которые можно читать в любом порядке
+Помимо цикла про Ересь Хоруса есть новеллы про примархов, которые можно читать в любом порядке.
 
 Roboute Guilliman: Lord of Ultramar by David Annandale (2016)
 
@@ -153,7 +173,5 @@ Alpharius: Head of the Hydra by Mike Brooks (2021)
 Blood of the Emperor by Various Authors (2021) [Anthology]
 
 Mortarion: The Pale King by David Annandale (Expected: September 27, 2022)
-
 ![Порядок чтения-схема №1](book_order.png)
-
 ![Порядок чтения-схема №2](book_order1.png)

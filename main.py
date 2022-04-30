@@ -56,10 +56,7 @@ def answer_query_lore(query):
             bot.send_photo(query.message.chat.id, photo=open(path, 'rb'), caption=alt_caption)
     else:
         bot.reply_to(query.message, f"Не найдена фракция: {faction_name}\nНевозможно! Быть может архивы неполные...")
-
-
-def script_location():
-    return os.path.dirname(os.path.realpath(__file__))
+    bot.answer_callback_query(query.id)
 
 
 @bot.callback_query_handler(lambda query: query.data == "books")

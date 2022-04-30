@@ -1,7 +1,6 @@
 import telebot
 import toml
 from data_provider import DataProvider
-import os
 from telebot.util import smart_split
 from data_helpers import get_directory_realpath
 

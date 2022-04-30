@@ -46,6 +46,7 @@ class DataProvider:
     def __init__(self, json_file_path: str, encoding: str = 'utf-8'):
         self.json_file_path = abs_path(json_file_path)
         self._json_data = self._read_data(encoding)
+        self._md_docs_category: str | None = None
         self._md_docs_images: dict | None = None  # no images on init
 
     def collect_paths(self, category_name: str) -> dict[str, str]:
@@ -101,7 +102,7 @@ class DataProvider:
         self._md_docs_images = found_md_docs
 
     def get_md_for_telegram(self, category: str, content_name: str) -> tuple[str, list]:
-        if self._md_docs_images is None:
+        if self._md_docs_images is None or self._md_docs_category != category:
             self.prepare_md_docs(category=category)
 
         md_path, images_dict = self._md_docs_images[content_name]

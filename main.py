@@ -5,9 +5,9 @@ import os
 from telebot.util import smart_split
 from data_helpers import get_directory_realpath
 
+
 # TODO:
-#   3) check if sys paths (to .md docs) specified in json data actually exist -- fail if not
-#   4) bot behaviour
+#   - check if sys paths (to .md docs) specified in json data actually exist -- fail if not
 
 
 def get_telegram_creds(path: str = 'config_secret.toml') -> tuple[int, str]:
@@ -39,6 +39,23 @@ def answer_query_lore(query):
     bot.send_message(
         query.message.chat.id, "Выберите фракцию", reply_markup=markup)
     bot.answer_callback_query(query.id)
+
+
+@bot.callback_query_handler(lambda query: query.data in provider.get_items_names_by_category('factions'))
+def answer_query_lore(query):
+    paths_dict = provider.collect_paths('factions')
+    # if specified faction exists in keys - continue
+    faction_name = query.data
+    if faction_name in paths_dict.keys():
+        updated_text, images = provider.get_md_for_telegram('factions', faction_name)
+        messages = smart_split(updated_text)
+        for msg in messages:
+            bot.send_message(query.message.chat.id, msg, parse_mode="markdown")
+
+        for alt_caption, path in images:
+            bot.send_photo(query.message.chat.id, photo=open(path, 'rb'), caption=alt_caption)
+    else:
+        bot.reply_to(query.message, f"Не найдена фракция: {faction_name}\nНевозможно! Быть может архивы неполные...")
 
 
 def script_location():
@@ -75,7 +92,7 @@ def markup_format_level_2():
     """Markup for second level of communication with bot"""
     markup = telebot.types.InlineKeyboardMarkup(row_width=1)
     for x in provider.get_items_names_by_category('factions'):
-        markup.add(telebot.types.InlineKeyboardButton(x, callback_data=x))
+        markup.add(telebot.types.InlineKeyboardButton(x.title(), callback_data=x))
     return markup
 
 

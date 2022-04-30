@@ -63,12 +63,12 @@ class DataProvider:
                 filtered.append(x)
         return filtered
 
-    def get_items_names_by_category(self, category: str):
-        collected = []
+    def get_items_names_by_category(self, category: str) -> list[str]:
+        items_names = []
         for x in self._json_data["things"]:
             if x["category"] == category:
-                collected.append(x["content"]["name"])
-        return collected
+                items_names.append(x["content"]["name"])
+        return items_names
 
     @property  # json getter
     def json_data(self):

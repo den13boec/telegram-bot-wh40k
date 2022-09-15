@@ -57,14 +57,15 @@ class DataProvider:
                 paths[x['content']['name']] = x['content']['md_doc_path']
         return paths
 
-    def filter_by_category(self, category_name: str) -> list[dict]:
-        filtered = list()
-        for x in self._json_data['things']:
-            if x['category'] is category_name:
-                filtered.append(x)
-        return filtered
+    # def filter_by_category(self, category_name: str) -> list[dict]:
+    #     filtered = list()
+    #     for x in self._json_data['things']:
+    #         if x['category'] is category_name:
+    #             filtered.append(x)
+    #     return filtered
 
     def get_items_names_by_category(self, category: str) -> list[str]:
+        """Get items of input category"""
         items_names = []
         for x in self._json_data["things"]:
             if x["category"] == category:
@@ -85,6 +86,7 @@ class DataProvider:
                              f" invalid data\n{err.message}")
 
     def prepare_md_docs(self, category: str):
+        """Prepare .md paths and images lines to remove form markdown files"""
         md_paths = self.collect_paths(category)
         found_md_docs = dict()
 
@@ -94,6 +96,7 @@ class DataProvider:
 
             images = dict()
             for img in get_image_from_md(read_markdown_text(md_path)):
+                # making original markdown Img line to remove it from text we want to display
                 images[img.raw_str()] = img.alt, os.path.join(dir_path, img.src)
 
             # save md_path with list of images to dictionary
@@ -102,6 +105,8 @@ class DataProvider:
         self._md_docs_images = found_md_docs
 
     def get_md_for_telegram(self, category: str, content_name: str) -> tuple[str, list]:
+        """Getting text from .md file without img lines,
+        and getting this lines to send images after updated text"""
         if self._md_docs_images is None or self._md_docs_category != category:
             self.prepare_md_docs(category=category)
 

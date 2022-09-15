@@ -15,7 +15,7 @@ class Img:
 
 class ImgExtractor(Treeprocessor):
     def run(self, doc):
-        """Find all images and append to markdown.images. """
+        """Find all images and their descriptions and append to markdown.images"""
         self.md.images = []
         for image in doc.findall('.//img'):
             self.md.images.append(
@@ -40,15 +40,17 @@ def get_image_from_md(md_text: str) -> list[Img]:
     return md.images
 
 
-def replace_image_links(text: str, links_to_replace: dict[str, tuple[str, str]]) -> str:
-    updated = text
-    for md_img_link, (alt, _) in links_to_replace.items():
-        # updated = updated.replace(md_img_link, alt)
-        updated = updated.replace(md_img_link, alt)
-    return updated
+# def replace_image_links(text: str, links_to_replace: dict[str, tuple[str, str]]) -> str:
+#     """Replacing all img links from .md text"""
+#     updated = text
+#     for md_img_link, (alt, _) in links_to_replace.items():
+#         # updated = updated.replace(md_img_link, alt)
+#         updated = updated.replace(md_img_link, alt)
+#     return updated
 
 
 def remove_image_links(text: str, links_to_del: dict[str, tuple[str, str]]) -> str:
+    """Removing all img links from .md text"""
     updated = text
     for md_img_link, (alt, _) in links_to_del.items():
         updated = updated.replace(md_img_link, "")

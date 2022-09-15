@@ -3,14 +3,16 @@ from typing import AnyStr
 
 
 def get_directory_realpath(file_path: AnyStr) -> AnyStr:
+    """Getting path of main script"""
     return os.path.dirname(os.path.realpath(file_path))
 
 
 # unix_rel_path = UNIX relative path e.g. : 'data/factions/tyranids'
 def abs_path(unix_rel_path: str) -> str:
-    """Getting paths"""
+    """Getting path"""
     split_rel_path = unix_rel_path.split("/")
-    real_dir_path = os.path.dirname(os.path.realpath(__file__))
+    #real_dir_path = os.path.dirname(os.path.realpath(__file__))
+    real_dir_path = get_directory_realpath(__file__)
     return os.path.join(real_dir_path, *split_rel_path)
 
 
